@@ -1,5 +1,6 @@
 package com.lydialane.videodemo
 
+import android.media.Image
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -8,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
+import com.squareup.picasso.Picasso
 import com.volokh.danylo.video_player_manager.Config
 import com.volokh.danylo.video_player_manager.manager.PlayerItemChangeListener
 import com.volokh.danylo.video_player_manager.manager.SingleVideoPlayerManager
@@ -26,6 +28,7 @@ import java.util.ArrayList
 class VideoRecyclerViewFragment : Fragment() {
 
     private val mList = ArrayList<BaseVideoItem>()
+    private val imageList = ArrayList<Image>()
 
     /**
      * Only the one (most visible) view should be active (and playing).
@@ -55,6 +58,8 @@ class VideoRecyclerViewFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_video_recycler_view, container, false)
 
         try {
+          //  imageList.add("sampleimage.jpeg")
+          //  Picasso.with(context).load("http://cdn.journaldev.com/wp-content/uploads/2016/11/android-image-picker-project-structure.png").into(imageView)
             mList.add(
                 ItemFactory.createItemFromAsset(
                     "samplevideo.mp4", R.drawable.video_thumbnail_1,

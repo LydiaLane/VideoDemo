@@ -8,7 +8,6 @@ import com.volokh.danylo.video_player_manager.manager.VideoPlayerManager
 import com.volokh.danylo.video_player_manager.meta.MetaData
 import com.volokh.danylo.video_player_manager.ui.VideoPlayerView
 import com.volokh.danylo.video_player_manager.utils.Logger
-import kotlin.reflect.KClass
 
 class AssetVideoItem(
     private val mTitle: String,
@@ -41,7 +40,6 @@ class AssetVideoItem(
 
     override fun toString(): String {
         return javaClass.simpleName + ", mTitle[" + mTitle + "]"
-        //getClass()
     }
 
     companion object {
