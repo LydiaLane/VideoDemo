@@ -28,13 +28,13 @@ abstract class BaseVideoItem protected constructor(private val mVideoPlayerManag
      * 1. [android.widget.ListAdapter.getView]
      * 2. [android.support.v7.widget.RecyclerView.Adapter.onBindViewHolder]
      */
-    abstract fun update(position: Int, view: VideoViewHolder, videoPlayerManager: VideoPlayerManager<*>)
+    abstract fun update(position: Int, view: RecyclerViewAdapter.VideoViewHolder, videoPlayerManager: VideoPlayerManager<*>)
 
     /**
      * When this item becomes active we start playback on the video in this item
      */
     override fun setActive(newActiveView: View, newActiveViewPosition: Int) {
-        val viewHolder = newActiveView.tag as VideoViewHolder
+        val viewHolder = newActiveView.tag as RecyclerViewAdapter.VideoViewHolder
         playNewVideo(CurrentItemMetaData(newActiveViewPosition, newActiveView), viewHolder.mPlayer, mVideoPlayerManager)
     }
 
@@ -50,7 +50,7 @@ abstract class BaseVideoItem protected constructor(private val mVideoPlayerManag
         val layoutParams = view.layoutParams
         layoutParams.height = screenWidth
 
-        val videoViewHolder = VideoViewHolder(view)
+        val videoViewHolder = RecyclerViewAdapter.VideoViewHolder(view)
         view.tag = videoViewHolder
 
         videoViewHolder.mPlayer.addMediaPlayerListener(object : MediaPlayerWrapper.MainThreadMediaPlayerListener {
@@ -110,7 +110,7 @@ abstract class BaseVideoItem protected constructor(private val mVideoPlayerManag
 
     private fun setVisibilityPercentsText(currentView: View, percents: Int) {
         if (SHOW_LOGS) Logger.v(TAG, "setVisibilityPercentsText percents $percents")
-        val videoViewHolder = currentView.tag as VideoViewHolder
+        val videoViewHolder = currentView.tag as RecyclerViewAdapter.VideoViewHolder
         val percentsText = "Visibility percents: " + percents.toString()
 
         videoViewHolder.mVisibilityPercents.text = percentsText

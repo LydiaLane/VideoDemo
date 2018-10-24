@@ -17,7 +17,7 @@ class AssetVideoItem(
     private val mImageResource: Int
 ) : BaseVideoItem(videoPlayerManager) {
 
-    override fun update(position: Int, view: VideoViewHolder, videoPlayerManager: VideoPlayerManager<*>) {
+    override fun update(position: Int, view: RecyclerViewAdapter.VideoViewHolder, videoPlayerManager: VideoPlayerManager<*>) {
         if (SHOW_LOGS) Logger.v(TAG, "update, position $position")
 
         view.mTitle.text = mTitle

@@ -112,9 +112,10 @@ class VideoRecyclerViewFragment : Fragment() {
         mLayoutManager = LinearLayoutManager(activity)
         mRecyclerView!!.layoutManager = mLayoutManager
 
-        val videoRecyclerViewAdapter = VideoRecyclerViewAdapter(mVideoPlayerManager, activity!!, mList)
+      //  val videoRecyclerViewAdapter = VideoRecyclerViewAdapter(mVideoPlayerManager, activity!!, mList)
+        val recyclerViewAdapter = RecyclerViewAdapter(mVideoPlayerManager, activity!!, mList)
 
-        mRecyclerView!!.adapter = videoRecyclerViewAdapter
+        mRecyclerView!!.adapter = recyclerViewAdapter
         mRecyclerView!!.addOnScrollListener(object : RecyclerView.OnScrollListener() {
 
             override fun onScrollStateChanged(recyclerView: RecyclerView, scrollState: Int) {
