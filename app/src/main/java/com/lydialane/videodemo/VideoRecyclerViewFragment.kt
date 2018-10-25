@@ -21,6 +21,7 @@ import com.volokh.danylo.visibility_utils.scroll_utils.ItemsPositionGetter
 import com.volokh.danylo.visibility_utils.scroll_utils.RecyclerViewItemPositionGetter
 import java.io.IOException
 import java.util.ArrayList
+import kotlin.reflect.jvm.internal.impl.protobuf.LazyStringArrayList
 
 /**
  * This fragment shows of how to use [VideoPlayerManager] with a RecyclerView.
@@ -28,7 +29,8 @@ import java.util.ArrayList
 class VideoRecyclerViewFragment : Fragment() {
 
     private val mList = ArrayList<BaseVideoItem>()
-    private val imageList = ArrayList<Image>()
+    private val listOfVideos = arrayOf<String>("samplevideo.mp4", "samplevideo.mp4")
+    private val listOfImages = ArrayList<Image>()
 
     /**
      * Only the one (most visible) view should be active (and playing).
@@ -59,49 +61,19 @@ class VideoRecyclerViewFragment : Fragment() {
 
         try {
           //  imageList.add("moth.jpeg      //  Picasso.with(context).load("http://cdn.journaldev.com/wp-content/uploads/2016/11/android-image-picker-project-structure.png").into(imageView)
-            mList.add(
-                ItemFactory.createItemFromAsset(
-                    "samplevideo.mp4", R.drawable.video_thumbnail_1,
-                    activity!!, mVideoPlayerManager
-                )
-            )
-            mList.add(
-                ItemFactory.createItemFromAsset(
-                    "samplevideo.mp4", R.drawable.video_thumbnail_1,
-                    activity!!, mVideoPlayerManager
-                )
-            )
 
-            mList.add(
-                ItemFactory.createItemFromAsset(
-                    "sampleimage.jpeg", R.drawable.moth,
-                    activity!!, mVideoPlayerManager
+            for (item in listOfVideos) {
+                mList.add(
+                    ItemFactory.createItemFromAsset(
+                        item, R.drawable.moth,
+                        activity!!, mVideoPlayerManager
+                    )
                 )
-            )
-            mList.add(
-                ItemFactory.createItemFromAsset(
-                    "samplevideo.mp4", R.drawable.video_thumbnail_1,
-                    activity!!, mVideoPlayerManager
-                )
-            )
-
-            mList.add(
-                ItemFactory.createItemFromAsset(
-                    "samplevideo.mp4", R.drawable.video_thumbnail_1,
-                    activity!!, mVideoPlayerManager
-                )
-            )
-            mList.add(
-                ItemFactory.createItemFromAsset(
-                    "samplevideo.mp4", R.drawable.video_thumbnail_1,
-                    activity!!, mVideoPlayerManager
-                )
-            )
+            }
         } catch (e: IOException) {
             throw RuntimeException(e)
         }
-
-
+        
         mRecyclerView = rootView.findViewById(R.id.recycler_view)
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
