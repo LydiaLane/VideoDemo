@@ -58,8 +58,7 @@ class VideoRecyclerViewFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_video_recycler_view, container, false)
 
         try {
-          //  imageList.add("sampleimage.jpeg")
-          //  Picasso.with(context).load("http://cdn.journaldev.com/wp-content/uploads/2016/11/android-image-picker-project-structure.png").into(imageView)
+          //  imageList.add("moth.jpeg      //  Picasso.with(context).load("http://cdn.journaldev.com/wp-content/uploads/2016/11/android-image-picker-project-structure.png").into(imageView)
             mList.add(
                 ItemFactory.createItemFromAsset(
                     "samplevideo.mp4", R.drawable.video_thumbnail_1,
@@ -75,7 +74,7 @@ class VideoRecyclerViewFragment : Fragment() {
 
             mList.add(
                 ItemFactory.createItemFromAsset(
-                    "samplevideo.mp4", R.drawable.video_thumbnail_1,
+                    "sampleimage.jpeg", R.drawable.moth,
                     activity!!, mVideoPlayerManager
                 )
             )
